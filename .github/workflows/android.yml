@@ -1,0 +1,25 @@
+name: Android CI
+on:
+  push: { branches: [ main ] }
+  pull_request: { branches: [ main ] }
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+          cache: gradle
+      - name: Build & tests (skip if no wrapper)
+        if: hashFiles('gradlew') != ''
+        run: ./gradlew clean assembleDebug testDebugUnitTest lint
+      - name: Upload reports
+        if: hashFiles('**/build/reports/**') != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: reports
+          path: |
+            **/build/reports/tests/**
+            **/build/reports/lint-results*.html
