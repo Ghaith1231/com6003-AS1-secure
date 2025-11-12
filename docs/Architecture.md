@@ -1,2 +1,1 @@
-# Architecture (Clean Architecture, Java)
-Modules: app, data, domain. Data: Room + Retrofit + WorkManager. Auth: password + biometric. RBAC gate. Offline-first.
+Clean Architecture (Java): modules app, data, domain. Room + Retrofit + WorkManager. RBAC. Biometric + password. Offline-first.
