@@ -14,4 +14,4 @@ Android Studio • Java • Min SDK 26. See `/docs/Architecture.md`.
 | Git History (≥3 commits) | GitHub commits/tags |
 
 ## Branches
-`lab0-setup` `lab1-foundations` `lab2-auth` `lab3-offline` `lab4-security`
+`lab0-setup` `lab1-foundations` `lab2-auth` `lab3-offline` `lab4-security` 1
