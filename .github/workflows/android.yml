@@ -1,22 +1,38 @@
 name: Android CI
 on:
   push: { branches: [ main ] }
-  pull_request: { branches: [ main ] }
+  pull_request:
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: '17'
-          cache: gradle
-      - name: Build & tests (skip if no wrapper)
-        if: hashFiles('gradlew') != ''
-        run: ./gradlew clean assembleDebug testDebugUnitTest lint
+
+      # Install Android SDK + accept licenses
+      - uses: android-actions/setup-android@v3
+
+      # (Optional but fast) Preinstall the platform/build-tools your project uses
+      - name: Install SDK components
+        run: |
+          sdkmanager --install "platform-tools" "platforms;android-35" "build-tools;35.0.0"
+
+      # Make wrapper executable on Linux runners
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      # Cache Gradle for speed
+      - uses: gradle/actions/setup-gradle@v3
+
+      - name: Build, test, lint
+        run: ./gradlew clean assembleDebug testDebugUnitTest lint --stacktrace
+
       - name: Upload reports
-        if: hashFiles('**/build/reports/**') != ''
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: reports
