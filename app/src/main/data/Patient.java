@@ -5,12 +5,9 @@ import androidx.room.Entity;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
-@Entity(
-        tableName = "patients",
-        indices = @Index(value = {"nhsNumber"}, unique = true) // needed for the unique test
-)
+@Entity(tableName = "patients", indices = @Index(value = "nhsNumber", unique = true))
 public class Patient {
     @PrimaryKey(autoGenerate = true) public long id;
-    @NonNull public String fullName = "";
     @NonNull public String nhsNumber = "";
+    public String fullName;
 }
