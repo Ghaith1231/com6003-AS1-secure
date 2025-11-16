@@ -1,4 +1,4 @@
-package uk.ac.ltu.hms.core;
+package uk.ac.ltu.hms;
 
 public final class NhsValidator {
     private NhsValidator() {}
