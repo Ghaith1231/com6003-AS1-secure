@@ -17,7 +17,7 @@ import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
 
 @RunWith(RobolectricTestRunner.class)
-@Config(sdk = 34) // Robolectric’s supported max for your dependency
+@Config(sdk = 34)
 public class PatientDaoTest {
 
     private HmsDatabase db;

@@ -42,8 +42,32 @@ dependencies {
     implementation("androidx.appcompat:appcompat:1.7.0")
     implementation("com.google.android.material:material:1.12.0")
     implementation("androidx.constraintlayout:constraintlayout:2.2.0")
-    // Optional AndroidX core for Java (remove if not needed)
     implementation("androidx.core:core:1.13.1")
+
+
+
+    dependencies {
+        // Retrofit
+        implementation("com.squareup.retrofit2:retrofit:2.11.0")
+        implementation("com.squareup.retrofit2:converter-gson:2.11.0")
+
+        // MockWebServer for JVM tests
+        testImplementation("com.squareup.okhttp3:mockwebserver:4.12.0")
+        testImplementation("junit:junit:4.13.2")
+    }
+    dependencies {
+        // Retrofit core
+        implementation("com.squareup.retrofit2:retrofit:2.11.0")
+
+        // Use Moshi converter (make it available to tests too)
+        implementation("com.squareup.retrofit2:converter-moshi:2.11.0")
+        testImplementation("com.squareup.retrofit2:retrofit:2.11.0")
+        testImplementation("com.squareup.retrofit2:converter-moshi:2.11.0")
+
+        // MockWebServer for unit tests
+        testImplementation("com.squareup.okhttp3:mockwebserver:4.12.0")
+    }
+
 
     // Room (Java uses annotationProcessor)
     implementation("androidx.room:room-runtime:2.6.1")
