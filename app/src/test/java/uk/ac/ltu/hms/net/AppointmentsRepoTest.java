@@ -16,6 +16,8 @@ public class AppointmentsRepoTest {
     private MockWebServer server;
     private AppointmentsRepo repo;
 
+
+
     @Before
     public void setUp() throws Exception {
         server = new MockWebServer();
@@ -31,6 +33,23 @@ public class AppointmentsRepoTest {
         server.shutdown();
     }
 
+
+
+    @Test
+    public void list_today() throws Exception {
+        server.enqueue(
+                new MockResponse()
+                        .setResponseCode(200)
+                        .addHeader("Content-Type", "application/json")
+                        .setBody("{\"appointments\":[{\"id\":1,\"patient\":\"Alex\"},{\"id\":2,\"patient\":\"Sam\"}]}")
+        );
+
+        List<Appointment> list = repo.today();
+        assertNotNull(list);
+        assertEquals(2, list.size());
+        assertEquals("Alex", list.get(0).patient);
+    }
+
     @Test
     public void today_returnsList() throws Exception {
         server.enqueue(new MockResponse()
@@ -38,7 +57,7 @@ public class AppointmentsRepoTest {
                 .setBody("{\"appointments\":[{\"id\":1,\"patient\":\"Alex\"},{\"id\":2,\"patient\":\"Sam\"}]}")
                 .addHeader("Content-Type", "application/json"));
 
-        List<Appointment> list = repo.today();             // <-- no arguments
+        List<Appointment> list = repo.today();
         assertNotNull(list);
         assertEquals(2, list.size());
         assertEquals("Alex", list.get(0).patient);
@@ -65,4 +84,8 @@ public class AppointmentsRepoTest {
         assertNotNull(list);
         assertTrue(list.isEmpty());
     }
+
 }
+
+
+
