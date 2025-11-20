@@ -1,4 +1,3 @@
-// app/src/test/java/uk/ac/ltu/hms/net/AppointmentsRepoTest.java
 package uk.ac.ltu.hms.net;
 
 import org.junit.After;
@@ -23,8 +22,8 @@ public class AppointmentsRepoTest {
         server = new MockWebServer();
         server.start();
 
-        String baseUrl = server.url("/").toString();       // http://127.0.0.1:xxxx/
-        RetrofitFactory rf = new RetrofitFactory(baseUrl); // <-- instance, not static
+        String baseUrl = server.url("/").toString();
+        RetrofitFactory rf = new RetrofitFactory(baseUrl);
         repo = new AppointmentsRepo(rf.api());
     }
 
