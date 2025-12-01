@@ -19,5 +19,13 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".EhrSummaryActivity" />
+        <activity android:name=".EditEhrActivity" />
+        <activity android:name=".VitalsActivity" />
+
+
+
+
+
     </application>
 </manifest>

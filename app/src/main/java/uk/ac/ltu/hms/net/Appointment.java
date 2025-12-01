@@ -7,4 +7,5 @@ public class Appointment {
     // optional fields if you want them later
     public String date;
     public String time;
+    public String clinic;
 }

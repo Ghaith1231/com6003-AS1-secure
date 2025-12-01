@@ -1,0 +1,85 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ehrRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    >
+
+
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:text="Patient Name" />
+
+    <TextView
+        android:id="@+id/tvNhs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="NHS:" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Allergies"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvAllergies"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="-" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Conditions"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvConditions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="-" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Medications"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvMeds"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="-" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Latest Vitals"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvVitals"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="-" />
+
+    <Button
+        android:id="@+id/btnEditEhr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Edit EHR" />
+
+    <Button
+        android:id="@+id/btnAddVitals"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add Vitals" />
+
+</LinearLayout>
