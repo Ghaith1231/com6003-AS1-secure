@@ -1,30 +1,35 @@
 package uk.ac.ltu.hms.net;
 
-import java.io.IOException;
-import java.util.Collections;
+import java.util.ArrayList;
 import java.util.List;
 
-import retrofit2.Response;
 
 public class AppointmentsRepo {
-    private final AppointmentsApi api;
 
-    public AppointmentsRepo(AppointmentsApi api) {
-        this.api = api;
+    public List<Appointment> today() {
+        // In the real app you would call Retrofit here.
+        // For the lab we just return some dummy data.
+        List<Appointment> list = new ArrayList<>();
+
+        Appointment a1 = new Appointment();
+        a1.id = 1;
+        a1.patient = "Alex";
+        a1.clinic = "NHS Clinic A";
+        a1.time = "10:00";
+        list.add(a1);
+
+        Appointment a2 = new Appointment();
+        a2.id = 2;
+        a2.patient = "Sam";
+        a2.clinic = "NHS Clinic B";
+        a2.time = "11:00";
+        list.add(a2);
+
+        return list;
     }
 
-    /** Never returns null. Empty list means error/empty payload. */
-    public List<Appointment> today() {
-        try {
-            Response<AppointmentsResponse> r = api.today().execute();
-            if (!r.isSuccessful()) return Collections.emptyList();
-
-            AppointmentsResponse body = r.body();
-            if (body == null || body.appointments == null) return Collections.emptyList();
-
-            return body.appointments;
-        } catch (IOException e) {
-            return Collections.emptyList();
-        }
+    // alias so your old test name "patient()" still works if you want it
+    public List<Appointment> patient() {
+        return today();
     }
 }

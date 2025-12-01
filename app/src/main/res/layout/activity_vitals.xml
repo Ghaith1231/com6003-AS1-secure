@@ -1,0 +1,47 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/etHeartRate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Heart rate"
+        android:inputType="number"/>
+
+    <EditText
+        android:id="@+id/etTemp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Temperature"
+        android:inputType="numberDecimal"/>
+
+    <EditText
+        android:id="@+id/etGlucose"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Glucose"
+        android:inputType="numberDecimal"/>
+
+    <EditText
+        android:id="@+id/etSys"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Systolic BP"
+        android:inputType="number"/>
+
+    <EditText
+        android:id="@+id/etDia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Diastolic BP"
+        android:inputType="number"/>
+
+    <Button
+        android:id="@+id/btnSaveVitals"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save Vitals"/>
+</LinearLayout>
